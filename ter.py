@@ -6,7 +6,7 @@ import psutil
 # import chardet
 # import json
 
-
+# 清理内存
 def clean_image():
     print('== CLEAN UP FILES ==')
     image_dic = '/home/nvidia/image'

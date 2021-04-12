@@ -1,7 +1,7 @@
 import os
 import time
 
-
+# 服务器定时重启
 def timed_reboot(timed):
     time.sleep(timed)
     cmd = "reboot"
