@@ -1,5 +1,6 @@
 """
 图片添加防伪码等信息水印
+md5实现
 """
 import hashlib
 import cv2
