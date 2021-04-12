@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GB2312" standalone="yes" ?>
+<Result>
+    <IP name="设备IP" value="192.168.12.250" />
+    <RoadName name="道路名称" value="010010001" />
+    <Time name="时间" value="2020-12-18 17:36:14 109" />
+    <PlateNo name="车牌号码" value="湘EHV812" />
+    <Image1 name="合成图" value="D:\\result\192.168.12.250\20201218\湖_违法停车_湘EHV812_20201218_173614109_imageMix.jpg" />
+    <AVI name="录像" value="D:\\result\192.168.12.250\20201218\湖_违法停车_湘EHV812_20201218_173614109_plate.avi" />
+    <XML name="XML" value="D:\\result\192.168.12.250\20201218\湖_违法停车_湘EHV812_20201218_173614109_plate.xml" />
+    <TrackMode name="事件类型" value="违法停车" />
+    <GPS name="GPS信息" value="湖" />
+    <fileName name="文件名" value="湖_湘EHV812_20201218_173614109" />
+</Result>

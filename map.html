@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>地图API－范例－逆地理编码</title>
+    <meta content="text/html; charset=UTF-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta tabindex="">
+    <link rel="stylesheet" type="text/css" href="apidemos/sourceLinks/style.css"/>
+    <script type="text/javascript" src="https://api.mapabc.com:443/as/webapi/js/auth?v=1.0&t=jsmap&ak=您申请的key"></script>
+
+</head>
+<body style="margin:0px;padding:0px">
+<div id="map" style="width:100%;height:100%;"></div>
+<script type="text/javascript">
+    var map, geocoder;
+
+    function initMap() {
+        map = new IMAP.Map("map", {
+            zoom: 9,//设置地图初始化级别
+            center: new IMAP.LngLat(116.46794, 40.01213),//设置地图中心点坐标
+            animation: true//设置地图缩放动画效果
+        });
+        toGeocoder();
+    }
+
+    //地理编码
+    function toGeocoder(obj) {
+        map.plugin(['IMAP.Geocoder'], function () {
+            geocoder = new IMAP.Geocoder({city: "深圳", pois: true});
+            geocoder.getAddress(new IMAP.LngLat(LBS.centerX, LBS.centerY), displayPOI);
+        });
+    }
+
+    //显示poi信息
+    function displayPOI(status, results) {
+        if (status == 0) {
+            var results = results.result, datas, data;
+            datas = results[0];
+            var plnglat = datas.location;
+            var marker = addUserMarker(new IMAP.LngLat(plnglat.lng, plnglat.lat), true);
+            addPOIInfowindow(marker, {"lnglat": plnglat, "address": datas.formatted_address});
+        }
+    }
+
+    //逆地理编码搜索返回执行函数
+    function addUserMarker(lnglat, bool) {
+        var icon = new IMAP.Icon("../../imgs/marker.png",
+            {
+                "size": {"width": 32, "height": 32}
+            });
+        var opt = {"icon": icon};
+        var marker = new IMAP.Marker(lnglat, opt);
+        map.getOverlayLayer().addOverlay(marker);
+        return marker;
+    }
+
+    //添加POI事件
+    function addPOIInfowindow(m, infomation) {
+        var c = "经纬度: " + infomation.lnglat.lng + ", " + infomation.lnglat.lat + "</br>地理编码结果为: " + infomation.address;
+        m.addEventListener(IMAP.Constants.CLICK, function (cObj) {
+            m.openInfoWindow(c, {"autoPan": true, "offset": new IMAP.Pixel(-5, -27)});
+        }, m);
+        m.openInfoWindow(c, {"autoPan": true, "offset": new IMAP.Pixel(-5, -27)});
+    }
+
+    initMap(); //添加路网图层
+</script>
+</body>
+</html>
+    
+
+
