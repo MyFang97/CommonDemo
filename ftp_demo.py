@@ -16,7 +16,7 @@ from ftplib import FTP
 def ftpconnect(host, username, password):
     ftp = FTP()
     # ftp.set_debuglevel(2)
-    ftp.connect(host, 21)
+    ftp.connect(host, 2221)
     ftp.login(username, password)
     return ftp
 
@@ -43,14 +43,15 @@ def uploadfile(ftp, localpath, remotepath):
 
 
 if __name__ == "__main__":
-    ftp = ftpconnect("43.5.169.242", "test1", "test1")
+    ftp = ftpconnect("192.168.1.152", "admin", "123456")
     ftp.dir()
     ftp.nlst()
     try:
-        ftp.mkd('c')
-        ftp.mkd('c/b')
+        # ftp.mkd('c')
+        # ftp.mkd('c/b')
+        pass
     except Exception as e:
         print(e)
-    uploadfile(ftp, "13.jpg", "c/b/13.jpg")
+    uploadfile(ftp, "1.jpg", "c/b/14.jpg")
 
-    ftp.quit()
+    # ftp.quit()

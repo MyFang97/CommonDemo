@@ -40,21 +40,4 @@ def auto_clear():
         time.sleep(3 * 24 * 60 * 60)  # 没有清理之前三天查一次
 
 
-url = "https://api.mapabc.com/as/webapi/js/auth?v=1.0&t=jsmap&ak=ec85d3648154874552835438ac6a02b2&m=plugins/Geocoder"
-"""
-IMAP.SRVConfig:
- SRV_RGEO_URL: IMAP.SRV_URL + "rgeo?",
-    //逆地理编码
-IMAP.SRV_URL = IMAP.ApiHost + "/as/";
-IMAP.ApiHost = "https://api.mapabc.com";
-SRV_AK: "ec85d3648154874552835438ac6a02b2"
-    //用户key
-
-this._rgeoUrl = IMAP.SRVConfig.SRV_RGEO_URL + "ak=" + IMAP.SRVConfig.SRV_AK + "&";
-
-var b = [];
-b.push(a.lng + "," + a.lat)
-
-this._rgeoUrl = IMAP.SRVConfig.SRV_RGEO_URL + "ak=" + IMAP.SRVConfig.SRV_AK + "&";
-"""
 
